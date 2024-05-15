@@ -1,0 +1,46 @@
+<div class="container">
+  <br>
+  <h1 class="comp-title">Products</h1>
+  <table class="table" *ngIf="products && products.length > 0">
+    <!-- Table headers -->
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Code</th>
+        <th scope="col">Description</th>
+        <th scope="col">Category</th>
+        <th scope="col">UOM</th>
+        <th scope="col">Price</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Table rows for products -->
+      <tr *ngFor="let product of products">
+        <td>{{ product.productName }}</td>
+        <td>{{ product.productCode }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.categoryLkpName }}</td>
+        <td>{{ product.uom }}</td>
+        <td>{{ product.price | currency }}</td>
+        <td>
+          <!-- Edit button -->
+          <button mat-button [routerLink]="['/products/edit', product.productId]" color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+        <td>
+          <!-- Delete button -->
+          <button mat-icon-button color="warn" (click)="deleteProduct(product.productId)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!products || products.length == 0">No product found</p>
+</div>
+<mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page"
+  (page)="onPageChange($event)">
+</mat-paginator>

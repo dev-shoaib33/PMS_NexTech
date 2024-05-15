@@ -1,0 +1,15 @@
+
+  .btn-submit{
+    color: #3f51b5;
+    font-weight: bolder;
+  }
+
+  .comp-title{
+    color: #3f51b5;
+    font-weight: bold;
+  }
+
+  div.col-md-6 mat-form-field
+  {
+    width: 100%;
+  }

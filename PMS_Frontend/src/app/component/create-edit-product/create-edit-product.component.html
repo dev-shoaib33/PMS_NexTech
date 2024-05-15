@@ -1,0 +1,64 @@
+<div class="container">
+  <br>
+  <h1 class="comp-title">{{ editMode ? 'Edit Product' : 'Create Product' }}</h1>
+  <div class="row">
+    <div class="col-md-8">
+      <form [formGroup]="form" (ngSubmit)="form.valid && createOrUpdateProduct()" class="py-4 px-4 rounded"
+            style="background-color: #f8f9fa;">
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field appearance="fill" class="mb-4">
+              <mat-label>Name</mat-label>
+              <input matInput type="text" id="name" name="name" autocomplete="off" formControlName="productName">
+              <mat-error *ngIf="form.get('productName')?.invalid && form.get('productName')?.hasError('required')">Name is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field appearance="fill" class="mb-4">
+              <mat-label>Description</mat-label>
+              <input matInput type="text" id="Description" name="Description" autocomplete="off" formControlName="description">
+              <mat-error *ngIf="form.get('description')?.invalid && form.get('description')?.hasError('required')">Description is required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field appearance="fill" class="mb-4">
+              <mat-label>Product Code</mat-label>
+              <input matInput type="text" id="Product_Code" name="Product_Code" autocomplete="off" formControlName="productCode">
+              <mat-error *ngIf="form.get('productCode')?.invalid && form.get('productCode')?.hasError('required')">Product Code is required</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="mb-4">
+              <mat-label>Price</mat-label>
+              <input matInput type="number" id="price" name="price" autocomplete="off" formControlName="price" min="0.01">
+              <mat-error *ngIf="form.get('price')?.invalid && form.get('price')?.hasError('required')">Price is required</mat-error>
+              <mat-error *ngIf="form.get('price')?.invalid && form.get('price')?.hasError('min')">Price must be greater than 0</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field appearance="fill" class="mb-4">
+              <mat-label>UOM</mat-label>
+              <mat-select name="uom" formControlName="uom">
+                <mat-option *ngFor="let uom of uomList" [value]="uom.name">
+                  {{ uom.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('uom')?.invalid && form.get('uom')?.hasError('required')">UOM is required</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="mb-4">
+              <mat-label>Category</mat-label>
+              <mat-select name="category" formControlName="categoryLkpId">
+                <mat-option *ngFor="let category of categories" [value]="category.id">
+                  {{ category.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('categoryLkpId')?.invalid && form.get('categoryLkpId')?.hasError('required')">Category is required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <br>
+        <button mat-raised-button class="primary btn-submit" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
