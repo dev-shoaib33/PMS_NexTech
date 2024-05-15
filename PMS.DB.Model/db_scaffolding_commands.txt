@@ -1,0 +1,1 @@
+Scaffold-DbContext "Name=PMSDBConnection" Microsoft.EntityFrameworkCore.SqlServer -OutputDir EF.Models -ContextDir Data -Context AppDbContext -Schemas "dbo" -DataAnnotations -Force

@@ -1,0 +1,18 @@
+.vs/
+PMS.API/bin/
+PMS.API/obj/
+PMS.Common/bin/
+PMS.Common/obj/
+PMS.DB.Model/bin/
+PMS.DB.Model/obj/
+PMS.Repositories/bin/
+PMS.Repositories/obj/
+PMS.Services/bin/
+PMS.Services/obj/
+PMS.Test/bin/
+PMS.Test/obj/
+PMS.DB.Schema/bin/
+PMS.DB.Schema/obj/
+PMS.DB.Schema/Import Schema Logs/
+PMS.DB.Schema/PMS.DB.Schema.dbmdl
+PMS.DB.Schema/PMS.DB.Schema.jfm
